@@ -1,0 +1,29 @@
+{
+  "name": "kuali-mongoose-helpers",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "AGPL-3.0",
+  "scripts": {
+    "pretest": "npm run test:lint",
+    "test": "jest --coverage",
+    "test:lint": "standard",
+    "coverage:publish": "codecov"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "branches": 100,
+      "functions": 100,
+      "lines": 100,
+      "statements": 100
+    }
+  },
+  "dependencies": {
+    "ramda": "^0.25.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^21.1.2",
+    "codecov": "^2.3.0",
+    "jest": "^21.2.1",
+    "standard": "^10.0.3"
+  }
+}
