@@ -98,6 +98,7 @@ jobs:
           name: Configure public package registry
           command: |
             echo "//registry.npmjs.org/:_authToken=\"$PUBLIC_NPM_TOKEN\"" > .npmrc
+            cat .npmrc
       - run:
           name: Publish to npm
           command: npm publish
