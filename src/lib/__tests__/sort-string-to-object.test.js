@@ -20,4 +20,9 @@ describe('sortStringToObject', () => {
       createdAt: -1
     })
   })
+  test('returns empty object with empty string', () => {
+    expect(sortStringToObject('')).toEqual({})
+    expect(sortStringToObject()).toEqual({})
+    expect(sortStringToObject(null)).toEqual({})
+  })
 })

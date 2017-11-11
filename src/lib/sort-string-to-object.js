@@ -21,13 +21,17 @@ const getSortKeyValue = R.applySpec({
  *   if the field is to be sorted in ascending order, or `-1` if the field is to
  *   be sorted in descending order.
  */
-const sortStringToObject = R.pipe(
-  R.split(','),
-  R.map(R.trim),
-  R.reduce((sortObject, field) => {
-    const { key, value } = getSortKeyValue(field)
-    return R.assoc(key, value, sortObject)
-  }, {})
-)
+const sortStringToObject = sortString => {
+  return R.pipe(
+    R.defaultTo(''),
+    R.split(','),
+    R.filter(Boolean),
+    R.map(R.trim),
+    R.reduce((sortObject, field) => {
+      const { key, value } = getSortKeyValue(field)
+      return R.assoc(key, value, sortObject)
+    }, {})
+  )(sortString)
+}
 
 module.exports = sortStringToObject
